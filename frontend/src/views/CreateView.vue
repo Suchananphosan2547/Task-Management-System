@@ -1,11 +1,44 @@
 <template>
-    <div class="q-gutter-md" style="max-width: 400px">
-        <q-form @submit="onSubmit" class="q-gutter-md">
-            <q-input v-model="title" label="Task Title" />
-            <q-input v-model="description" label="Description" />
-            <q-select v-model="status" :options="statusOptions" label="Status" />
-            <q-input v-model="due_date" label="Due Date" type="date" />
-            <q-btn type="submit" label="Create Task" color="primary" />
+    <div class="q-gutter-md" style="max-width: 600px; margin: 0 auto; padding: 30px;">
+        <q-form @submit="onSubmit" class="q-gutter-md" style="border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); background-color: #fff; padding: 30px;">
+            <q-input 
+                v-model="title" 
+                label="Task Title" 
+                class="q-mb-md"
+                dense
+                rounded
+            />
+            <q-input 
+                v-model="description" 
+                label="Description" 
+                class="q-mb-md"
+                dense
+                rounded
+            />
+            <q-select 
+                v-model="status" 
+                :options="statusOptions" 
+                label="Status" 
+                class="q-mb-md"
+                dense
+                rounded
+            />
+            <q-input 
+                v-model="due_date" 
+                label="Due Date" 
+                type="date" 
+                class="q-mb-md"
+                dense
+                rounded
+            />
+            <q-btn 
+                type="submit" 
+                label="Create Task" 
+                color="primary" 
+                class="full-width"
+                rounded
+                size="lg"
+            />
         </q-form>
     </div>
 </template>
@@ -50,3 +83,34 @@ const onSubmit = () => {
     .catch((error) => console.error(error))
 }
 </script>
+
+<style scoped>
+.q-form {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.q-input,
+.q-select {
+  max-width: 100%;
+  padding: 10px 15px;
+}
+
+.q-btn {
+  font-weight: bold;
+}
+
+.q-btn.full-width {
+  width: 100%;
+}
+
+.q-input.q-mb-md,
+.q-select.q-mb-md {
+  margin-bottom: 15px;
+}
+
+.q-btn {
+  margin-top: 20px;
+}
+</style>
